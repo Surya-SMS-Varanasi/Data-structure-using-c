@@ -19,23 +19,18 @@ int main(){
     int size = 10, i;
     int key, count = -1;
     printArray(arr,size);
-    printf("Enter a key to search : ");
-    scanf("%d", &key);
+    printf("Array before reverse : ");
 
     // Searching
-    for(i = 0; i < size; i++){
-        if( arr[i] == key){
-            count = i;
-        }
+    for(i = 0; i < size/2; i++){
+        int temp = arr[i];
+        arr[i]=arr[size-1];
+        arr[size-1] = temp;
     }
 
     // Printing the element
-    if(count > -1){
-        printf("Last occurance of number %d is at index : %d\n\n", key, count);
-    }
-    else{
-        printf("The element %d was not present in the array.\n\n", key);
-    }
+   printf("Array after reverse: ");
+    printArray(arr,size);
 
 
     return 0;
